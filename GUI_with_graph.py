@@ -134,7 +134,7 @@ def read_from_file():
         if len(line) > 1:
             x, y = line.split(',')
             xs.append(x)
-            ys.append(float(y))
+            ys.append(y)
 
     return xs, ys
 
