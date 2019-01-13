@@ -40,6 +40,28 @@ file = 'cpu_temp.csv'
 cpu = CPUTemperature()
 
 
+def read_from_file():
+    # open file and append it to array
+    myfile = open(file, 'r')
+    graph_data = myfile.read()
+    lines = graph_data.split('\n')
+    xs = []
+    ys = []
+    for line in lines:
+        if len(line) > 1:
+            x, y = line.split(',')
+            xs.append(x)
+            ys.append(float(y))
+    myfile.close()
+    return xs, ys
+
+
+def append_to_file(temp):  # write temp to file
+    with open(file, "a") as log:
+        log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
+    log.close()
+
+
 class Window(QDialog):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
@@ -114,7 +136,8 @@ class Window(QDialog):
         # plt.clf()
 
         # plot data
-        append_to_file()
+        temp = cpu.temperature
+        append_to_file(temp=temp)
         xs, ys = read_from_file()
 
         ax1.scatter(xs, ys)
@@ -122,30 +145,6 @@ class Window(QDialog):
 
         # refresh canvas
         self.canvas2.draw()
-
-
-def read_from_file():
-    # open file and append it to array
-    myfile = open(file, 'r')
-    graph_data = myfile.read()
-    lines = graph_data.split('\n')
-    xs = []
-    ys = []
-    for line in lines:
-        if len(line) > 1:
-            x, y = line.split(',')
-            xs.append(x)
-            ys.append(y)
-    myfile.close()
-    return xs, ys
-
-
-def append_to_file():
-    temp = cpu.temperature
-    #temp = 40
-    with open(file, "a") as log:
-        log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
-    log.close()
 
 
 """
