@@ -34,8 +34,8 @@ import random
 
 # for file and temp
 from gpiozero import CPUTemperature
-# file = '/home/pi/projectScreen/cpu_temp.csv'
-file = 'cpu_temp.csv'
+file = '/home/pi/projectScreen/cpu_temp.csv'
+#file = 'cpu_temp.csv'
 # global var
 cpu = CPUTemperature()
 
@@ -135,7 +135,7 @@ def read_from_file():
         if len(line) > 1:
             x, y = line.split(',')
             xs.append(x)
-            ys.append(float(y))
+            ys.append(y)
     myfile.close()
     return xs, ys
 
@@ -144,7 +144,7 @@ def append_to_file():
     temp = cpu.temperature
     #temp = 40
     with open(file, "a") as log:
-        log.write("{},{}\n".format(strftime("%Y-%m-%d#%H:%M:%S"), str(temp)))
+        log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
     log.close()
 
 
