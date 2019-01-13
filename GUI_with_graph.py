@@ -2,6 +2,7 @@
 
 # default
 import sys
+import math
 # import numpy as np
 # import time
 from time import sleep, strftime, time
@@ -58,7 +59,7 @@ def read_from_file():
 
 def append_to_file(temp):  # write temp to file
     with open(file, "a") as log:
-        log.write("{},{}\n".format(strftime("%m-%d %H:%M"), str(temp)))
+        log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
     log.close()
 
 
