@@ -2,14 +2,14 @@
 
 # default
 import sys
-#import numpy as np
-#import time
+# import numpy as np
+# import time
 from time import sleep, strftime, time
 
 # matplotlib
-#import matplotlib.pyplot as plt
-#import matplotlib.animation as animation
-#from matplotlib import style
+# import matplotlib.pyplot as plt
+# import matplotlib.animation as animation
+# from matplotlib import style
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import style
@@ -20,7 +20,7 @@ from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as Navigatio
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette
-#from PyQt5.QtWidgets import QApplication, QPushButton
+# from PyQt5.QtWidgets import QApplication, QPushButton
 
 from PyQt5.QtWidgets import *
 """from PyQt5.QtWidgets import (QWidget, QToolTip,
@@ -33,11 +33,11 @@ import random
 
 
 # for file and temp
-from gpiozero import CPUTemperature
-
-
-#global var
-cpu = CPUTemperature()
+# from gpiozero import CPUTemperature
+# file = '/home/pi/projectScreen/cpu_temp.csv'
+file = 'cpu_temp.csv'
+# global var
+# cpu = CPUTemperature()
 
 
 class Window(QDialog):
@@ -126,7 +126,8 @@ class Window(QDialog):
 
 def read_from_file():
     # open file and append it to array
-    graph_data = open('/home/pi/projectScreen/cpu_temp.csv', 'r').read()
+    myfile = open(file, 'r')
+    graph_data = myfile.read()
     lines = graph_data.split('\n')
     xs = []
     ys = []
@@ -134,20 +135,23 @@ def read_from_file():
         if len(line) > 1:
             x, y = line.split(',')
             xs.append(x)
-            ys.append(y)
-
+            ys.append(float(y))
+    myfile.close()
     return xs, ys
 
 
 def append_to_file():
-    temp = cpu.temperature
-    with open("/home/pi/projectScreen/cpu_temp.csv", "a") as log:
+    # temp = cpu.temperature
+    temp = 40
+    with open(file, "a") as log:
         log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
+    log.close()
 
 
+"""
 def get_cpu_temp():
     return cpu.temperature
-
+"""
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
