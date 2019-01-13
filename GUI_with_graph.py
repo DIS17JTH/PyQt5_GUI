@@ -33,11 +33,11 @@ import random
 
 
 # for file and temp
-# from gpiozero import CPUTemperature
+from gpiozero import CPUTemperature
 # file = '/home/pi/projectScreen/cpu_temp.csv'
 file = 'cpu_temp.csv'
 # global var
-# cpu = CPUTemperature()
+cpu = CPUTemperature()
 
 
 class Window(QDialog):
@@ -141,10 +141,10 @@ def read_from_file():
 
 
 def append_to_file():
-    # temp = cpu.temperature
-    temp = 40
+    temp = cpu.temperature
+    #temp = 40
     with open(file, "a") as log:
-        log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
+        log.write("{},{}\n".format(strftime("%Y-%m-%d#%H:%M:%S"), str(temp)))
     log.close()
 
 
