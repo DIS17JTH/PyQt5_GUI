@@ -34,8 +34,8 @@ import random
 
 # for file and temp
 from gpiozero import CPUTemperature
-file = '/home/pi/projectScreen/cpu_temp.csv'
-#file = 'cpu_temp.csv'
+#file = '/home/pi/PyQt5_GUI/PyQt5_GUI/cpu_temp.csv'
+file = 'cpu_temp.csv'
 # global var
 cpu = CPUTemperature()
 
