@@ -18,7 +18,8 @@ from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as Navigatio
 
 # PyQt5
 
-from PyQt5.QtCore import Qt
+#from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QPoint, Qt, QTime, QTimer
 from PyQt5.QtGui import QPalette
 #from PyQt5.QtWidgets import QApplication, QPushButton
 
@@ -29,53 +30,65 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
 from PyQt5.QtGui import QFont
 
+#
 import random
 
+#for update
 
+#file = "/home/pi/projectScreen/cpu_temp.csv"
+file = "cpu_temp.csv"
 # for file and temp
-from gpiozero import CPUTemperature
+#from gpiozero import CPUTemperature
 
 
 #global var
-cpu = CPUTemperature()
+#cpu = CPUTemperature()
 
 
 class Window(QDialog):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
 
+        
+        timer = QTimer(self)
+        timer.timeout.connect(self.plotLive)
+        timer.start(10000)
+
+
         # a figure instance to plot on
+        self.clockFigure = plt.figure()
         self.figure = plt.figure()
         self.figure2 = plt.figure()
 
-        # this is the Canvas Widget that displays the `figure`
-        # it takes the `figure` instance as a parameter to __init__
-        self.canvas = FigureCanvas(self.figure)
+
 
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
+        self.clockCanvas = FigureCanvas(self.clockFigure)
+        self.canvas = FigureCanvas(self.figure)
         self.canvas2 = FigureCanvas(self.figure2)
 
         # this is the Navigation widget
         # it takes the Canvas widget and a parent
+        self.clockToolbar = NavigationToolbar(self.clockCanvas, self)
         self.toolbar = NavigationToolbar(self.canvas, self)
         self.toolbar2 = NavigationToolbar(self.canvas2, self)
 
-        # Just some button connected to `plot` method
+        # button connected to `plot` method
         self.button = QPushButton('Plot')
         self.button.clicked.connect(self.plot)
-
         self.button2 = QPushButton('Plot2')
         self.button2.clicked.connect(self.plotLive)
 
+
         # set the layout
         layout = QVBoxLayout()
-        layout.addWidget(self.toolbar)
+        #layout.addWidget(self.toolbar)
         layout.addWidget(self.canvas)
         layout.addWidget(self.button)
-        layout.addWidget(self.toolbar2)
+        #layout.addWidget(self.toolbar2)
         layout.addWidget(self.canvas2)
-        layout.addWidget(self.button2)
+        #layout.addWidget(self.button2)
         self.setLayout(layout)
 
     def plot(self):
@@ -124,9 +137,10 @@ class Window(QDialog):
         self.canvas2.draw()
 
 
+
 def read_from_file():
     # open file and append it to array
-    graph_data = open('/home/pi/projectScreen/cpu_temp.csv', 'r').read()
+    graph_data = open(file, 'r').read()
     lines = graph_data.split('\n')
     xs = []
     ys = []
@@ -140,13 +154,14 @@ def read_from_file():
 
 
 def append_to_file():
-    temp = cpu.temperature
-    with open("/home/pi/projectScreen/cpu_temp.csv", "a") as log:
+    #temp = cpu.temperature
+    temp = 45
+    with open(file, "a") as log:
         log.write("{},{}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
 
 
-def get_cpu_temp():
-    return cpu.temperature
+#def get_cpu_temp():
+#    return cpu.temperature
 
 
 if __name__ == '__main__':
