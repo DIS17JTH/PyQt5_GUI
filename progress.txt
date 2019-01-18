@@ -1,0 +1,22 @@
+-Start pi project
+-using: python3
+-goal: GUI with som live data
+-start:2018-12-28
+
+-PROGRESS:
+    2018-12-29
+        -graphProgram that don't display data but saves temp to file : temperatureLoggerProg.py
+    2019-01-03
+        -over all project organizing
+        -live graph program, reads from file
+        -test on pi
+
+
+    2019-01-04 to 01-15
+	-tried implementing on pi -> poisible problem: old python version
+    2019-01-17
+	-added auto update on livegraph
+    2019-01-18
+	-try to get everyting to work on the pi
+	-add clock
+	-look att: how to get weather information
