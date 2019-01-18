@@ -17,6 +17,11 @@
     2019-01-17
 	-added auto update on livegraph
     2019-01-18
+    #start
 	-try to get everyting to work on the pi
 	-add clock
 	-look att: how to get weather information
+    #end
+    -not working on pi
+    -working on multiple windows with qt designer
+    -found api for weather - have not looked in to it yet
