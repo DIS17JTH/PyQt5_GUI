@@ -25,3 +25,5 @@
     -not working on pi
     -working on multiple windows with qt designer
     -found api for weather - have not looked in to it yet
+
+python -m PyQt5.uic.pyuic piDisplayGUI.ui -o piDisplayGUI.py

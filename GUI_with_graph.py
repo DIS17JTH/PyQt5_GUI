@@ -19,17 +19,18 @@ from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as Navigatio
 # PyQt5
 
 # from PyQt5.QtCore import Qt
-from PyQt5 import QtCore
-from PyQt5.QtCore import QPoint, Qt, QTime, QTimer
-from PyQt5.QtGui import QPalette
+from PyQt5 import QtCore, QtGui, QtWidgets
+#from PyQt5.QtCore import QPoint, Qt, QTime, QTimer
+#from PyQt5.QtGui import QPalette
+
 # from PyQt5.QtWidgets import QApplication, QPushButton
 
 from PyQt5.QtWidgets import *
 """from PyQt5.QtWidgets import (QWidget, QToolTip,
                              QPushButton, QMessageBox, QDesktopWidget, QApplication, QVBoxLayout, QLabel)
 """
-from PyQt5.QtGui import QIcon
-from PyQt5.QtGui import QFont
+#from PyQt5.QtGui import QIcon
+#from PyQt5.QtGui import QFont
 
 #
 import random
