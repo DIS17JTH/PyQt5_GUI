@@ -155,10 +155,11 @@ class Ui_MainWindow(object):
         self.lineEdit_location.textChanged['QString'].connect(
             self.label_2.setText)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        """
         timer = QtCore.QTimer(self)
         timer.timeout.connect(self.handle_update_time())
         timer.start(1000)
+        """
 
     def handle_b_update(self):
         self.update_clicked()
