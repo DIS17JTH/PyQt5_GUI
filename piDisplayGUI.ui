@@ -23,9 +23,6 @@
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
-   <property name="tabletTracking">
-    <bool>true</bool>
-   </property>
    <property name="focusPolicy">
     <enum>Qt::WheelFocus</enum>
    </property>

@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setMaximumSize(QtCore.QSize(790, 470))
         self.centralwidget.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.centralwidget.setTabletTracking(True)
+        # self.centralwidget.setTabletTracking(True)
         self.centralwidget.setFocusPolicy(QtCore.Qt.WheelFocus)
         self.centralwidget.setLocale(QtCore.QLocale(
             QtCore.QLocale.English, QtCore.QLocale.Sweden))
