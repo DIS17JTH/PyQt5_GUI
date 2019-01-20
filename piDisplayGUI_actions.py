@@ -152,6 +152,7 @@ class Ui_MainWindow(object):
         self.tabWidget_bottom_left.setCurrentIndex(1)
         self.b_update.clicked.connect(self.handle_b_update)
         self.b_update_2.clicked.connect(self.handle_b_update_2)
+
         self.lineEdit_location.textChanged['QString'].connect(
             self.label_2.setText)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

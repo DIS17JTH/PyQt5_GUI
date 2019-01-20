@@ -13,20 +13,45 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QPushButton, QMainWindow
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
+from PyQt5.QtCore import QTimer
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
+    def pressed_b_update(self):
+        print("Pressed btn update")
+
+    def pressed_b_update_2(self):
+        print("Pressed btn update 2")
+
+    def __init__(self):
+        super(self.__class__, self).__init__()
+        self.setupUi(self)
+
+        # hooks for btn:s
+        self.b_update.clicked.connect(lambda: self.pressed_b_update())
+        self.b_update_2.clicked.connect(lambda: self.pressed_b_update_2())
+
+        self.lcdNumber.display("00:00")
+
+        timer = QTimer(self)
+        timer.timeout.connect(self.update_time)
+        timer.setInterval(1000)
+        timer.start()
+
+    """
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__()
 
-        # QtGui.QMainWindow.__init__(self)
-
+        self.setupUi(self)
         Ui_MainWindow.__init__(self)
 
-        self.ui = Ui_MainWindow()
+        # hooks
+        self.b_update.clicked.connect(lambda: self.handle_b_update)
 
-        self.ui.setupUi(self)
-        self.setupUi(self)
+        # QtGui.QMainWindow.__init__(self)
+        # self.ui = Ui_MainWindow()
+        # self.ui.setupUi(self)
+        # self.setupUi(self)
 
         # self.ui.b_update.setText("Text")
 
@@ -34,10 +59,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # not Working
         """
-        timer = QtCore.QTimer(self)
-        timer.timeout.connect(self, self.handle_update_time())
-        timer.start(1000)
-        """
+    # timer = QtCore.QTimer(self)
+    # timer.timeout.connect(self, self.handle_update_time())
+    # timer.start(1000)
+    """
 
         # continue to try: access buttons in UI file
         # self.b_update.clicked.connect(self.handle_b_update)
@@ -45,6 +70,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.b_update_2.pressed.connect(self.handle_b_update_2)
 
         self.show()
+    """
 
     def handle_b_update(self):
         self.update_clicked()
@@ -69,6 +95,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.lcdNumber.setDecMode()
         # self.lcdNumber.Dec(12)
         print("update time")
+        self.lcdNumber.display(strftime("%H:%M"))
 
     def setupUi(self, MainWindow):
         return super().setupUi(MainWindow)
@@ -92,12 +119,12 @@ def get_time():
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
-    #MainWindow = QtWidgets.QMainWindow()
+    # mainWindow = QtWidgets.QMainWindow()
     mainWindow = MainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(mainWindow)
+    # ui = Ui_MainWindow()
+    # ui.setupUi(mainWindow)
 
-    #ui.b_update_2.setText("set text")
+    # ui.b_update_2.setText("set text")
 
     mainWindow.show()
     sys.exit(app.exec_())

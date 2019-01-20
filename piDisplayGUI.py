@@ -171,7 +171,7 @@ class Ui_MainWindow(object):
         # self.lcdNumber.setDecMode()
         # self.lcdNumber.Dec(12)
         print("update time")
-
+        
     """
 
     def retranslateUi(self, MainWindow):

@@ -32,8 +32,8 @@
     2019-01-20
         +set layout of the window
         +began with: safe stages to version 1.0
-        cmd::win::command:: python -m PyQt5.uic.pyuic piDisplayGUI.ui -o piDisplayGUI.py
-        AppData\Local\Programs\Python\Python37\Lib\site-packages\PyQt5\uic
+        #cmd::win::command:: python -m PyQt5.uic.pyuic piDisplayGUI.ui -o piDisplayGUI.py
+        #AppData\Local\Programs\Python\Python37\Lib\site-packages\PyQt5\uic
         +Start With MainWindow - MainWindow design done!
         +piDisplayGUI_actions.py - some actions working with window direct in class
         -piDisplayMain.py main file - tried to add actions to buttons and change labels - but a window appears and the GUI is imported, therefore a cleaner main file.
@@ -43,3 +43,10 @@
     ::todo:: include code for temperature
     ::todo:: look at weather api
     ::todo:: add weather icons
+
+    2019-01-21
+        +GUI now working on pi
+        #terminal::rasbian::command:: sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
+        ::todo:: code for clock
+        ::todo:: include code for CPU_temperature
+        
