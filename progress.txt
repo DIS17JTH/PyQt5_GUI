@@ -48,5 +48,6 @@
         +GUI now working on pi
         #terminal::rasbian::command:: sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
         +clock done::todo:: code for clock
-        +::todo:: include code for CPU_temperature
+        +added::todo:: include code for CPU_temperature
+        
         
