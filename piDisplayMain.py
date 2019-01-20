@@ -38,6 +38,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         timer.setInterval(1000)
         timer.start()
 
+        self.label.setText("20" + '°' + 'C')
+        self.label_2.setText("40" + '°' + 'C')
+
     """
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__()
