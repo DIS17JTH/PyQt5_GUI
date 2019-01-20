@@ -147,6 +147,33 @@ class Ui_MainWindow(object):
         self.tabWidget_bottom_left.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    """
+    def handle_b_update(self):
+        self.update_clicked()
+
+    def handle_b_update_2(self):
+        self.update_clicked_2()
+
+    def update_clicked(self):
+        # code for button clicked
+        print("button update clicked")
+        self.label.setText(str(get_cpu_temp()) + "*C")
+
+    def update_clicked_2(self):
+        # code for button clicked
+        print("button update clicked 2")
+        self.label_2.setText(str(get_temp()) + "*C")
+
+    def handle_update_time(self):
+        self.update_time()
+
+    def update_time(self):
+        # self.lcdNumber.setDecMode()
+        # self.lcdNumber.Dec(12)
+        print("update time")
+
+    """
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -168,6 +195,20 @@ class Ui_MainWindow(object):
         self.actionSize.setText(_translate("MainWindow", "Size"))
         self.actionQuit.setText(_translate("MainWindow", "Quit"))
 
+
+"""
+def get_cpu_temp():
+    # return cpu.temperature
+    return 46
+
+
+def get_temp():
+    return 21
+
+
+def get_time():
+    return "10:30"
+"""
 
 if __name__ == "__main__":
     import sys

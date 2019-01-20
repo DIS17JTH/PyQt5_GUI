@@ -1,5 +1,6 @@
 import sys
 from piDisplayGUI import Ui_MainWindow
+from time import sleep, strftime, time
 
 # from PyQt5 import QtCore
 # from PyQt5.QtCore import QPoint, Qt, QTime, QTimer
@@ -11,26 +12,39 @@ from PyQt5.QtWidgets import *
 # from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QApplication, QPushButton, QMainWindow
 from PyQt5 import QtWidgets
+from PyQt5 import QtCore
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
-        QtGui.QMainWindow.__init__(self)
+        super(MainWindow, self).__init__()
+
+        # QtGui.QMainWindow.__init__(self)
+
+        Ui_MainWindow.__init__(self)
+
+        self.ui = Ui_MainWindow()
 
         self.ui.setupUi(self)
         self.setupUi(self)
-        self.show()
 
+        # self.ui.b_update.setText("Text")
+
+        # self.ui.label_2.setText("Label_2_edited")
+
+        # not Working
+        """
         timer = QtCore.QTimer(self)
-        timer.timeout.connect(self.handle_update_time())
+        timer.timeout.connect(self, self.handle_update_time())
         timer.start(1000)
+        """
 
-    def setupUi(self, MainWindow):
-        return super().setupUi(MainWindow)
+        # continue to try: access buttons in UI file
+        # self.b_update.clicked.connect(self.handle_b_update)
+        # self.b_update.pressed.connect(self.handle_b_update)
+        # self.b_update_2.pressed.connect(self.handle_b_update_2)
 
-        # self.pushButton.pressed.connect(self.update_weather)
-
-        # self.threadpool = QThreadPool()
+        self.show()
 
     def handle_b_update(self):
         self.update_clicked()
@@ -52,8 +66,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.update_time()
 
     def update_time(self):
-        self.lcdNumber.setDecMode()
-        self.lcdNumber.Dec(12)
+        # self.lcdNumber.setDecMode()
+        # self.lcdNumber.Dec(12)
+        print("update time")
+
+    def setupUi(self, MainWindow):
+        return super().setupUi(MainWindow)
+
+        # self.pushButton.pressed.connect(self.update_weather)
 
 
 def get_cpu_temp():
@@ -71,9 +91,13 @@ def get_time():
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
 
-    MainWindow.show()
+    #MainWindow = QtWidgets.QMainWindow()
+    mainWindow = MainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(mainWindow)
+
+    #ui.b_update_2.setText("set text")
+
+    mainWindow.show()
     sys.exit(app.exec_())
