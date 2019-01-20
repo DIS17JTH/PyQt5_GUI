@@ -15,6 +15,10 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 from PyQt5.QtCore import QTimer
 
+# for pi cpu temp
+from gpiozero import CPUTemperature
+cpu = CPUTemperature()
+
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def pressed_b_update(self):
@@ -33,13 +37,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.lcdNumber.display("00:00")
 
-        timer = QTimer(self)
-        timer.timeout.connect(self.update_time)
-        timer.setInterval(1000)
-        timer.start()
+        timer_clock = QTimer(self)
+        timer_clock.timeout.connect(self.update_time)
+        timer_clock.setInterval(1000)
+        timer_clock.start()
 
-        self.label.setText("20" + '°' + 'C')
-        self.label_2.setText("40" + '°' + 'C')
+        temp = get_temp()
+        cpu_temp = get_cpu_temp()
+
+        self.label.setText(str(temp) + '°' + 'C')
+        self.label_2.setText(str(cpu_temp) + '°' + 'C')
+
+        timer_temp = QTimer(self)
+        timer_temp.timeout.connect(self.update_temp)
+        timer_temp.setInterval(10000)
+        timer_temp.start()
 
     """
     def __init__(self, *args, **kwargs):
@@ -75,21 +87,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.show()
     """
 
-    def handle_b_update(self):
-        self.update_clicked()
-
-    def handle_b_update_2(self):
-        self.update_clicked_2()
-
     def update_clicked(self):
         # code for button clicked
         print("button update clicked")
-        self.label.setText(str(get_cpu_temp()) + "*C")
+        self.label.setText(str(get_cpu_temp()) + '°' + 'C')
 
     def update_clicked_2(self):
         # code for button clicked
         print("button update clicked 2")
-        self.label_2.setText(str(get_temp()) + "*C")
+        self.label_2.setText(str(get_temp()) + '°' + 'C')
 
     def handle_update_time(self):
         self.update_time()
@@ -100,6 +106,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print("update time")
         self.lcdNumber.display(strftime("%H:%M"))
 
+    def update_temp(self):
+        print("update temp °C")
+        temp = get_temp()
+        cpu_temp = get_cpu_temp()
+        # print(temp)
+        # print(cpu_temp)
+        self.label.setText(str(temp) + '°' + 'C')
+        self.label_2.setText(str(cpu_temp) + '°' + 'C')
+
     def setupUi(self, MainWindow):
         return super().setupUi(MainWindow)
 
@@ -107,8 +122,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 def get_cpu_temp():
-    # return cpu.temperature
-    return 46
+    # temp = 46
+    temp = cpu.temperature
+    return temp
 
 
 def get_temp():
