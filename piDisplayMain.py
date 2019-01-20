@@ -53,39 +53,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         timer_temp.setInterval(10000)
         timer_temp.start()
 
-    """
-    def __init__(self, *args, **kwargs):
-        super(MainWindow, self).__init__()
-
-        self.setupUi(self)
-        Ui_MainWindow.__init__(self)
-
-        # hooks
-        self.b_update.clicked.connect(lambda: self.handle_b_update)
-
-        # QtGui.QMainWindow.__init__(self)
-        # self.ui = Ui_MainWindow()
-        # self.ui.setupUi(self)
-        # self.setupUi(self)
-
-        # self.ui.b_update.setText("Text")
-
-        # self.ui.label_2.setText("Label_2_edited")
-
-        # not Working
-        """
-    # timer = QtCore.QTimer(self)
-    # timer.timeout.connect(self, self.handle_update_time())
-    # timer.start(1000)
-    """
-
-        # continue to try: access buttons in UI file
-        # self.b_update.clicked.connect(self.handle_b_update)
-        # self.b_update.pressed.connect(self.handle_b_update)
-        # self.b_update_2.pressed.connect(self.handle_b_update_2)
-
-        self.show()
-    """
+        # self.show()
 
     def update_clicked(self):
         # code for button clicked
