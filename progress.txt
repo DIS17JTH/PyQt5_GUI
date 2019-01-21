@@ -52,3 +52,5 @@
     ::todo:: add weather icons
 
     2019-01-22
+        ::todo:: look at weather api
+        ::todo:: add weather icons

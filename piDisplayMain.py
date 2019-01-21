@@ -29,8 +29,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 # for pi cpu temp
-from gpiozero import CPUTemperature
-cpu = CPUTemperature()
+#from gpiozero import CPUTemperature
+#cpu = CPUTemperature()
 
 
 OPENWEATHERMAP_API_KEY = os.environ.get('OPENWEATHERMAP_API_KEY')
@@ -180,19 +180,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.threadpool.start(worker)
 
     def weather_result(self, weather, forecasts):  # not implemented
-        self.latitudeLabel.setText("%.2f °" % weather['coord']['lat'])
-        self.longitudeLabel.setText("%.2f °" % weather['coord']['lon'])
+        self.latitudeLabel_2.setText("%.2f °" % weather['coord']['lat'])
+        self.longitudeLabel_2.setText("%.2f °" % weather['coord']['lon'])
 
-        self.windLabel.setText("%.2f m/s" % weather['wind']['speed'])
+        self.windLabel_2.setText("%.2f m/s" % weather['wind']['speed'])
 
-        self.temperatureLabel.setText("%.1f °C" % weather['main']['temp'])
-        self.pressureLabel.setText("%d" % weather['main']['pressure'])
-        self.humidityLabel.setText("%d" % weather['main']['humidity'])
+        self.temperatureLabel_2.setText("%.1f °C" % weather['main']['temp'])
+        self.pressureLabel_2.setText("%d" % weather['main']['pressure'])
+        self.humidityLabel_2.setText("%d" % weather['main']['humidity'])
 
-        self.sunriseLabel.setText(
+        self.sunriseLabel_2.setText(
             from_ts_to_time_of_day(weather['sys']['sunrise']))
 
-        self.weatherLabel.setText("%s (%s)" % (
+        self.weatherLabel_2.setText("%s (%s)" % (
             weather['weather'][0]['main'],
             weather['weather'][0]['description']
         )
@@ -220,8 +220,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 def get_cpu_temp():
-    #temp = 46
-    temp = cpu.temperature
+    temp = 46
+    #temp = cpu.temperature
     return temp
 
 
