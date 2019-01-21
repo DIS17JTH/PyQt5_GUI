@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.tab.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.tab.setObjectName("tab")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tab)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(2, 6, 311, 288))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(2, 6, 411, 221))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -368,7 +368,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget_bottom_left.setCurrentIndex(1)
+        self.tabWidget_bottom_left.setCurrentIndex(0)
         self.actionQuit.triggered.connect(MainWindow.close)
         self.dial_volume.sliderMoved['int'].connect(self.l_dial.setNum)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
