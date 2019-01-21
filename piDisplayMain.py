@@ -29,8 +29,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 # for pi cpu temp
-#from gpiozero import CPUTemperature
-#cpu = CPUTemperature()
+from gpiozero import CPUTemperature
+cpu = CPUTemperature()
 
 
 OPENWEATHERMAP_API_KEY = os.environ.get('OPENWEATHERMAP_API_KEY')
@@ -220,8 +220,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 def get_cpu_temp():
-    temp = 46
-    #temp = cpu.temperature
+    #temp = 46
+    temp = cpu.temperature
     return temp
 
 
