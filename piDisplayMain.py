@@ -1,5 +1,5 @@
 import sys
-from piDisplayGUI_v4 import Ui_MainWindow
+from piDisplayGUI_v6 import Ui_MainWindow
 from time import sleep, strftime, time
 
 # from PyQt5 import QtCore
@@ -92,9 +92,6 @@ class WeatherWorker(QRunnable):
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
-    def pressed_b_update(self):
-        print("Pressed btn update")
-
     def pressed_b_update_2(self):
         print("Pressed btn update 2")
 
@@ -103,7 +100,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         # hooks for btn:s
-        #self.b_update.clicked.connect(lambda: self.pressed_b_update())
         self.b_update_2.clicked.connect(lambda: self.pressed_b_update_2())
 
         #timers#
@@ -130,11 +126,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.b_update.pressed.connect(self.update_weather)
 
         self.threadpool = QThreadPool()
+
         #end weather#
 
         # self.show()
 
     # basic
+
     def update_clicked(self):
         # code for button clicked
         print("button update clicked")
@@ -179,7 +177,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         worker.signals.error.connect(self.alert)
         self.threadpool.start(worker)
 
-    def weather_result(self, weather, forecasts):  # not implemented
+    def weather_result(self, weather, forecasts):
         self.latitudeLabel_2.setText("%.2f °" % weather['coord']['lat'])
         self.longitudeLabel_2.setText("%.2f °" % weather['coord']['lon'])
 

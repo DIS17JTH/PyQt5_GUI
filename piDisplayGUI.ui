@@ -38,14 +38,14 @@
       <x>0</x>
       <y>0</y>
       <width>561</width>
-      <height>331</height>
+      <height>351</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_main">
      <item row="1" column="1">
       <widget class="Line" name="line">
        <property name="cursor">
-        <cursorShape>BlankCursor</cursorShape>
+        <cursorShape>ArrowCursor</cursorShape>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -62,7 +62,7 @@
      <item row="1" column="0">
       <widget class="Line" name="line_2">
        <property name="cursor">
-        <cursorShape>BlankCursor</cursorShape>
+        <cursorShape>ArrowCursor</cursorShape>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -77,7 +77,7 @@
           <string notr="true">font: 18pt &quot;Myanmar Text&quot;;</string>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Temp</string>
          </property>
         </widget>
        </item>
@@ -87,7 +87,7 @@
           <string notr="true">font: 18pt &quot;Myanmar Text&quot;;</string>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Temp</string>
          </property>
         </widget>
        </item>
@@ -96,7 +96,10 @@
      <item row="2" column="0">
       <widget class="QTabWidget" name="tabWidget_bottom_left">
        <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="currentIndex">
         <number>1</number>
@@ -114,7 +117,7 @@
            <x>2</x>
            <y>6</y>
            <width>311</width>
-           <height>191</height>
+           <height>288</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -651,17 +654,41 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_bottom_right"/>
+      <layout class="QVBoxLayout" name="verticalLayout_bottom_right">
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="l_dial">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 18pt &quot;Myanmar Text&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Volume</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="dial_volume"/>
+       </item>
+      </layout>
      </item>
      <item row="3" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLineEdit" name="lineEdit_location"/>
+        <widget class="QLineEdit" name="lineEdit_location">
+         <property name="text">
+          <string>Jönköping,Sweden</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="b_update">
          <property name="cursor">
-          <cursorShape>BlankCursor</cursorShape>
+          <cursorShape>ArrowCursor</cursorShape>
          </property>
          <property name="text">
           <string>Update</string>
@@ -673,7 +700,7 @@
      <item row="3" column="1">
       <widget class="QPushButton" name="b_update_2">
        <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+        <cursorShape>ArrowCursor</cursorShape>
        </property>
        <property name="text">
         <string>update</string>
@@ -763,6 +790,22 @@
     <hint type="destinationlabel">
      <x>399</x>
      <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial_volume</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>l_dial</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>495</x>
+     <y>225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>114</y>
     </hint>
    </hints>
   </connection>
