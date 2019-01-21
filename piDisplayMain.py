@@ -1,5 +1,5 @@
 import sys
-from piDisplayGUI import Ui_MainWindow
+from piDisplayGUI_v2 import Ui_MainWindow
 from time import sleep, strftime, time
 
 # from PyQt5 import QtCore
