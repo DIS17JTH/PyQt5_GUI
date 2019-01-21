@@ -192,7 +192,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.sunriseLabel_2.setText(
             from_ts_to_time_of_day(weather['sys']['sunrise']))
 
-        self.weatherLabel_2.setText("%s (%s)" % (
+        self.weatherLabel.setText("%s (%s)" % (
             weather['weather'][0]['main'],
             weather['weather'][0]['description']
         )
