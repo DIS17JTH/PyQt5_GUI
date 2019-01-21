@@ -35,10 +35,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>50</y>
-      <width>541</width>
-      <height>311</height>
+      <x>0</x>
+      <y>0</y>
+      <width>561</width>
+      <height>331</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_main">
@@ -114,7 +114,7 @@
            <x>2</x>
            <y>6</y>
            <width>311</width>
-           <height>219</height>
+           <height>191</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -645,31 +645,13 @@
             </widget>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="b_update_2">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="text">
-             <string>update</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </widget>
       </widget>
      </item>
      <item row="2" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_bottom_right">
-       <item>
-        <widget class="QWidget" name="widget_plotLive" native="true">
-         <property name="cursor">
-          <cursorShape>BlankCursor</cursorShape>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout_bottom_right"/>
      </item>
      <item row="3" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -687,6 +669,16 @@
         </widget>
        </item>
       </layout>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="b_update_2">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>update</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
