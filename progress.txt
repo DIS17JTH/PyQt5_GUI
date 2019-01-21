@@ -41,8 +41,6 @@
 
     ::todo:: code for clock
     ::todo:: include code for temperature
-    ::todo:: look at weather api
-    ::todo:: add weather icons
 
     2019-01-21
         +GUI now working on pi
@@ -50,4 +48,7 @@
         +clock done::todo:: code for clock
         +added::todo:: include code for CPU_temperature
         
-        
+    ::todo:: look at weather api
+    ::todo:: add weather icons
+
+    2019-01-22
