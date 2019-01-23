@@ -52,6 +52,10 @@
     ::todo:: add weather icons
 
     2019-01-22
-        ::todo:: look at weather api
-        ::todo:: add weather icons
-        export OPENWEATHERMAP_API_KEY=apikey
+        +::todo:: look at weather api
+        +::todo:: add weather icons
+        #terminal::rasbian::command:: export OPENWEATHERMAP_API_KEY=apikey
+
+    2019-01-23
+        ::todo:: "lcd_rotate=2" in /boot/config.txt
+        
